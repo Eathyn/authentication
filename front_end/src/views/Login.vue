@@ -13,9 +13,10 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { setToken } from '../utils/auth.js'
+import { setSessionId } from '../utils/auth.js'
 import { useRouter } from 'vue-router'
 import { request } from '../utils/request.js'
+import { key } from '../utils/auth.js'
 
 const router = useRouter()
 
@@ -34,7 +35,7 @@ async function handleLogin() {
     data: JSON.stringify(account),
   })
   const { data } = res
-  setToken(data['test-token'])
+  setSessionId(data.sessionId)
   await router.push({ name: 'main' })
 }
 </script>

@@ -1,13 +1,13 @@
 import axios from 'axios'
-import { getToken, TokenKey } from './auth.js'
+import { getSessionId, key } from './auth.js'
 
 export const request = axios.create({
   baseURL: 'http://localhost:8000',
 })
 
 request.interceptors.request.use((config) => {
-  if (getToken()) {
-    config.headers[TokenKey] = getToken()
+  if (getSessionId()) {
+    config.headers[key] = getSessionId()
   }
   return config
 }, (error) => {

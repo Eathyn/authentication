@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { getToken } from '../utils/auth.js'
+import { getSessionId } from '../utils/auth.js'
 
 const routes = [
   {
@@ -23,8 +23,8 @@ const router = createRouter({
 const whiteList = ['login']
 
 router.beforeEach((to, from, next) => {
-  const hasToken = getToken()
-  if (hasToken) {
+  const hasSessionId = getSessionId()
+  if (hasSessionId) {
     if (to.name === 'login') {
       next({ name: 'login' })
     } else {

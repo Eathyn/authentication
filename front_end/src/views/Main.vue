@@ -5,20 +5,20 @@
 </template>
 
 <script setup>
-import { removeToken } from '../utils/auth.js'
+import { removeSessionId } from '../utils/auth.js'
 import { useRouter } from 'vue-router'
 import { request } from '../utils/request.js'
 
 const router = useRouter()
 
 function handleLogout() {
-  removeToken()
+  removeSessionId()
   router.replace({ name: 'login' })
 }
 
 async function testCookieHeader() {
   await request({
-    url: '/test-cookie-header',
+    url: '/test-session-header',
     method: 'get',
   })
 }
