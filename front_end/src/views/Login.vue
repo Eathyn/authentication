@@ -34,7 +34,7 @@ async function handleLogin() {
     data: JSON.stringify(account),
   })
   const { data } = res
-  setToken(data['test-token'])
+  setToken(data.token)
   await router.push({ name: 'main' })
 }
 </script>

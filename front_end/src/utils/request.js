@@ -7,7 +7,7 @@ export const request = axios.create({
 
 request.interceptors.request.use((config) => {
   if (getToken()) {
-    config.headers[TokenKey] = getToken()
+    config.headers.Authorization = `Basic ${getToken()}`
   }
   return config
 }, (error) => {

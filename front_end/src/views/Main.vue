@@ -1,7 +1,7 @@
 <template>
   <div>main</div>
   <button @click="handleLogout">logout</button> |
-  <button @click="testCookieHeader">test cookie</button>
+  <button @click="testSendToken">test token</button>
 </template>
 
 <script setup>
@@ -16,9 +16,9 @@ function handleLogout() {
   router.replace({ name: 'login' })
 }
 
-async function testCookieHeader() {
+async function testSendToken() {
   await request({
-    url: '/test-cookie-header',
+    url: '/test-send-token',
     method: 'get',
   })
 }
